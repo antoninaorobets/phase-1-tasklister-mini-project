@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     sortBtton.addEventListener('click', sortItems);
-
+    
 });
 
 function addItem(evt) {
@@ -21,8 +21,12 @@ function addItem(evt) {
     dueDate.type = "date"
 
 
+
     const toDoListItem = document.createElement('li')
-    toDoListItem.textContent = document.querySelector('#new-task-description').value + " "
+    const toDoListInput = document.createElement('input')
+    toDoListInput.value = document.querySelector('#new-task-description').value
+    toDoListItem.appendChild(toDoListInput)
+    //toDoListItem.textContent = document.querySelector('#new-task-description').value
     toDoListItem.className = "medium"
     toDoListItem.prepend(delButton)
     toDoListItem.appendChild(dueDate)

@@ -37,11 +37,11 @@ button {
   box-shadow: 2px 5px 5px rgb(79, 61, 112);
 }
 
-.warning {
-  border: 2px solid #f39389;
-  border-radius: 2px;
-  padding: 10px;
+.select-items {
   position: absolute;
-  background-color: #fbd8d4;
-  color: #412a68;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }

@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#create-task-form').addEventListener('submit', addItem);
-    
+
+
+    const sortBtton = document.createElement('button')
+    sortBtton.textContent = "Sort"
+    document.querySelector('#list').appendChild(sortBtton)
+
+
+    sortBtton.addEventListener('click', sortItems);
+
 });
 
 function addItem(evt) {
@@ -9,12 +17,15 @@ function addItem(evt) {
     const delButton = document.createElement('button')
     delButton.textContent = "x"
     const priority = createPriority()
+    const dueDate = document.createElement('input')
+    dueDate.type = "date"
 
 
     const toDoListItem = document.createElement('li')
     toDoListItem.textContent = document.querySelector('#new-task-description').value + " "
     toDoListItem.className = "medium"
-    toDoListItem.appendChild(delButton)
+    toDoListItem.prepend(delButton)
+    toDoListItem.appendChild(dueDate)
     toDoListItem.appendChild(priority)
 
     document.querySelector('#tasks').appendChild(toDoListItem)
@@ -22,7 +33,8 @@ function addItem(evt) {
     delButton.addEventListener('click', removeItem);
     priority.addEventListener('change', changePriority);
 
-    
+
+
 
 
 
@@ -45,64 +57,50 @@ function changePriority(evt) {
     priority = Number.parseInt(evt.target.options.selectedIndex)
     const task = evt.target.parentElement
     const list = document.querySelector('#tasks');
-    if (priority === 0 ) {
+    if (priority === 0) {
         task.className = "high";
         list.removeChild(task)
         list.prepend(task)
     }
-    if (priority === 1 ) {task.className = "medium"}
-    if (priority === 2 ) {
+    if (priority === 1) {
+        task.className = "medium"
+    }
+    if (priority === 2) {
         task.className = "low";
         list.removeChild(task)
         list.appendChild(task)
+
+
+
+
+
+
+
+    }
 }
 
+function sortItems() {
 
-    console.log(task)
-
-
-
-    
-    
-
- 
-
-
-    
-    //sortByPriority()
-
-    
-}
-
-list.removeChild(task)
-        //     list.appendChild(task)
-function sortByPriority(){
     const list = document.querySelector('#tasks');
-    const tasks = list.getElementsByTagName('li');
+    const tasks = list.getElementsByTagName('li')
+    console.log(tasks)
+    const b = Array.from(tasks).length - 1
+    console.log(b)
 
-    for (let listItem of tasks) {
-        console.log('tasks ',listItem)
-        if (listItem.className === "high") {
-           list.removeChild(listItem)
-           list.prepend(listItem)
-        }
-        if (listItem.className === "low") {
-            list.removeChild(listItem)
-            list.appendChild(listItem)
-         }
+    for (let i = 0; i < b; i++) {
+        const task = tasks[i]
+        console.log('task name', task)
+        if (task.className === "high") {
+            list.removeChild(task)
+            list.prepend(task)
+        } else
+            if (task.className === "low") {
+                list.removeChild(task)
+                list.appendChild(task)
+            }
 
 
 
     }
 
-
-
-
-    console.log('sort ',list)
-    console.log('tasks ',tasks)
-
-
-
-
 }
-

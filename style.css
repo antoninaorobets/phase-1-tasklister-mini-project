@@ -12,7 +12,9 @@ body {
 }
 
 button {
-  font-size: 7px;
+  font-size: 14px;
+  margin: 10px;
+
 }
 
 #main-content {
@@ -37,10 +39,14 @@ button {
   box-shadow: 2px 5px 5px rgb(79, 61, 112);
 }
 
+ul {
+  list-style-type:none;
+}
+
 li{
   margin: 1px;
   border: 1px solid rgb(79, 61, 112);
-  padding: 1px;
+  padding: 5px;
   border-radius: 2px;
   color: rgb(79, 61, 112);;
 
@@ -56,7 +62,7 @@ li.low {
   background-color:rgb(253, 249, 10, .4);
 }
 
-.select-items {
+.select{
   position: absolute;
   background-color: DodgerBlue;
   top: 100%;
@@ -64,4 +70,9 @@ li.low {
   right: 0;
   z-index: 99;
   align-self: flex-end;
+}
+
+input, select {
+  margin: 5px;
+  height: 20px;
 }

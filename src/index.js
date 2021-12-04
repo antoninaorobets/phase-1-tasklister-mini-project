@@ -28,9 +28,10 @@ function addItem(evt) {
     toDoListItem.appendChild(toDoListInput)
     //toDoListItem.textContent = document.querySelector('#new-task-description').value
     toDoListItem.className = "medium"
-    toDoListItem.prepend(delButton)
+    
     toDoListItem.appendChild(dueDate)
-    toDoListItem.appendChild(priority)
+    toDoListItem.appendChild(delButton)
+    toDoListItem.prepend(priority)
 
     document.querySelector('#tasks').appendChild(toDoListItem)
 
